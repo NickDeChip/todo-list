@@ -26,8 +26,9 @@ func main() {
 
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "http://localhost:3000, http://127.0.0.1:3000",
-		AllowHeaders: "Origin, Content-Type, Accept",
+		AllowOrigins:     "http://localhost:3000, http://127.0.0.1:3000, https://localhost:6969",
+		AllowHeaders:     "Origin, Content-Type, Accept",
+		AllowCredentials: true,
 	}))
 	app.Use(encryptcookie.New(encryptcookie.Config{
 		Key: os.Getenv("COOKIE_KEY"),

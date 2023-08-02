@@ -35,7 +35,7 @@ func validateAndReadIdFromJWT(token string) (int64, error) {
 		if _, ok := tok.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("bad signing method: %v", tok.Header["alg"])
 		}
-		return []byte(os.Getenv("Key")), nil
+		return []byte(os.Getenv("SECRET_KEY")), nil
 	})
 	if err != nil {
 		return 0, err

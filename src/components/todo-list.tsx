@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { TodoItem } from "../App";
+import { TodoItem } from "./todo";
 
 type todoProps = {
   todos: TodoItem[];
@@ -10,12 +10,13 @@ export function TodoList(props: todoProps) {
 
   const removeTodo = (id: number) => {
     (async () => {
-      const res = await fetch("http://localhost:6969/todo", {
+      const res = await fetch("http://localhost:6969/api/todo", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: id })
+        body: JSON.stringify({ id: id }),
+        credentials: 'include'
       })
       if (!res.ok) {
         // Show Error

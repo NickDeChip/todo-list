@@ -16,3 +16,7 @@ type User struct {
 	Username string `json:"username"`
 	Email    string `json:"email"`
 }
+
+type Username struct {
+	Username string `json:"username"`
+}
